@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<title>ARSY STORE — •Jual Beli Akun Game Komunitas•</title>
+
+<meta name="description" content="ARSY STORE - Pusat Jual Beli akun game dan komunitas gaming.">
+<meta name="keywords" content="ARSY STORE, jual beli akun game, JB akun game, komunitas gaming">
+
+<!-- Open Graph -->
+<meta property="og:title" content="ARSY STORE — Jual Beli Akun Game Komunitas">
+<meta property="og:description" content="Semua link resmi ARSY STORE ada di sini 👇">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://i.postimg.cc/sgRDFMBs/IMG-20260829-WA0028.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="https://i.postimg.cc/sgRDFMBs/IMG-20260829-WA0028.jpg">
+
+<style>
+:root{
+  --bg-void:#05030a;
+  --bg-deep:#0a0614;
+  --neon-purple:#8b5cf6;
+  --neon-violet:#a855f7;
+  --neon-blue:#22d3ee;
+  --glass-bg:rgba(255,255,255,0.04);
+  --glass-border:rgba(255,255,255,0.09);
+  --text-hi:#f5f3ff;
+  --text-mid:#b8b0d4;
+  --text-low:#7c7495;
+  --success:#22c55e;
+  --gold:#facc15;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:var(--bg-void);
+  color:var(--text-hi);
+  font-family:'Segoe UI',Arial,sans-serif;
+  overflow-x:hidden;
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+.bg-fixed{
+  position:fixed;
+  inset:0;
+  z-index:0;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(139,92,246,0.25), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, rgba(34,211,238,0.15), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 0% 80%, rgba(168,85,247,0.15), transparent 60%),
+    var(--bg-void);
+}
+
+.glow-orb{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+  opacity:.35;
+  animation:float-glow 14s ease-in-out infinite;
+}
+.orb1{width:280px;height:280px;background:var(--neon-purple);top:-60px;left:-60px;}
+.orb2{width:320px;height:320px;background:var(--neon-blue);bottom:-80px;right:-60px;animation-delay:4s;}
+.orb3{width:200px;height:200px;background:var(--neon-violet);top:45%;left:60%;animation-delay:8s;}
+
+@keyframes float-glow{
+  0%,100%{transform:translate(0,0) scale(1);}
+  33%{transform:translate(30px,-40px) scale(1.1);}
+  66%{transform:translate(-20px,30px) scale(.95);}
+}
+
+#particles{position:absolute;inset:0;}
+.particle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(200,190,255,.6);
+  pointer-events:none;
+  animation:drift linear infinite;
+}
+@keyframes drift{
+  0%{transform:translateY(0) translateX(0);opacity:0;}
+  10%{opacity:.8;}
+  90%{opacity:.6;}
+  100%{transform:translateY(-110vh) translateX(20px);opacity:0;}
+}
+
+.noise-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(139,92,246,.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,.035) 1px, transparent 1px);
+  background-size:42px 42px;
+  mask-image:radial-gradient(ellipse 70% 60% at 50% 20%, black, transparent 75%);
+}
+
+.wrap{
+  position:relative;
+  z-index:1;
+  width:100%;
+  max-width:640px;
+  padding:38px 18px 30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.avatar-wrap{
+  position:relative;
+  width:104px;
+  height:104px;
+  margin-bottom:18px;
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+}
+
+.avatar-ring{
+  position:absolute;
+  inset:-6px;
+  border-radius:50%;
+  background:conic-gradient(from 0deg, var(--neon-purple), var(--neon-blue), var(--neon-violet), var(--neon-purple));
+  animation:spin 6s linear infinite;
+  filter:blur(1px);
+}
+.avatar-ring::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:50%;
+  background:var(--bg-void);
+}
+
+.avatar-glow{
+  position:absolute;
+  inset:-18px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(139,92,246,.5), transparent 70%);
+  filter:blur(14px);
+  animation:pulse-glow 3s ease-in-out infinite;
+}
+
+.avatar{
+  position:relative;
+  width:104px;
+  height:104px;
+  border-radius:50%;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#0d0819;
+  z-index:2;
+  border:3px solid #090611;
+  box-shadow:0 0 20px rgba(139,92,246,.45), inset 0 0 15px rgba(34,211,238,.15);
+}
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+@keyframes spin{to{transform:rotate(360deg);}}
+@keyframes pulse-glow{0%,100%{opacity:.5;}50%{opacity:.9;}}
+
+.brand-name{
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:1px;
+  background:linear-gradient(135deg, #fff 20%, var(--neon-blue) 60%, var(--neon-purple) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+  animation-delay:.2s;
+  text-align:center;
+}
+
+.brand-tagline{
+  font-size:11.5px;
+  letter-spacing:2.5px;
+  color:var(--text-mid);
+  margin-top:7px;
+  font-weight:600;
+  text-transform:uppercase;
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+  animation-delay:.3s;
+  text-align:center;
+}
+
+.trusted-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  margin-top:14px;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.5px;
+  color:#0a0614;
+  background:linear-gradient(135deg, #facc15, #fbbf24);
+  box-shadow:0 0 18px rgba(250,204,21,.35), 0 2px 8px rgba(0,0,0,.3);
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+  animation-delay:.4s;
+}
+
+.intro-text{
+  margin-top:18px;
+  font-size:14px;
+  color:var(--text-mid);
+  text-align:center;
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+  animation-delay:.5s;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(14px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+.section-label{
+  width:100%;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:28px 0 12px;
+  opacity:0;
+  animation:fadeUp .6s ease forwards;
+}
+.section-label .line{
+  flex:1;
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--glass-border), transparent);
+}
+.section-label span{
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--text-low);
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+
+.link-list{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.link-card{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  width:100%;
+  padding:16px 18px;
+  border-radius:18px;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  text-decoration:none;
+  color:var(--text-hi);
+  overflow:hidden;
+  cursor:pointer;
+  opacity:0;
+  transform:translateY(16px);
+  animation:cardIn .6s ease forwards;
+  transition:transform .18s ease, border-color .3s ease, box-shadow .3s ease;
+}
+@keyframes cardIn{to{opacity:1;transform:translateY(0);}}
+
+.link-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  background:linear-gradient(135deg, rgba(139,92,246,.5), rgba(34,211,238,.5));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  opacity:0;
+  transition:opacity .3s ease;
+  pointer-events:none;
+}
+.link-card::after{
+  content:"";
+  position:absolute;
+  top:-50%;
+  left:-60%;
+  width:40%;
+  height:200%;
+  background:linear-gradient(120deg, transparent, rgba(255,255,255,.06), transparent);
+  transform:rotate(20deg);
+  transition:left .6s ease;
+}
+.link-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(139,92,246,.25), 0 0 0 1px rgba(139,92,246,.15);
+}
+.link-card:hover::before{opacity:1;}
+.link-card:hover::after{left:120%;}
+.link-card:active{transform:translateY(-1px) scale(.98);}
+
+.card-icon{
+  flex-shrink:0;
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(139,92,246,.18), rgba(34,211,238,.14));
+  border:1px solid rgba(255,255,255,.08);
+}
+.card-icon svg{width:22px;height:22px;}
+
+.card-body{flex:1;min-width:0;}
+.card-title{
+  font-size:15px;
+  font-weight:700;
+  color:var(--text-hi);
+  margin-bottom:2px;
+}
+.card-desc{
+  font-size:12.5px;
+  color:var(--text-mid);
+  line-height:1.4;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+.card-arrow{
+  flex-shrink:0;
+  width:20px;
+  height:20px;
+  color:var(--text-low);
+  transition:transform .25s ease, color .25s ease;
+}
+.link-card:hover .card-arrow{transform:translateX(3px);color:var(--neon-blue);}
+
+.quick-actions{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  width:100%;
+}
+
+.qa-btn{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:7px;
+  padding:14px 8px;
+  border-radius:16px;
+  background:var(--glass-bg);
+  border:1px solid var(--glass-border);
+  backdrop-filter:blur(12px);
+  color:var(--text-hi);
+  text-decoration:none;
+  font-size:11.5px;
+  font-weight:600;
+  text-align:center;
+  transition:transform .15s ease, box-shadow .25s ease, border-color .25s ease;
+  opacity:0;
+  transform:translateY(16px);
+  animation:cardIn .6s ease forwards;
+}
+
+.qa-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg, rgba(139,92,246,.22), rgba(34,211,238,.16));
+}
+.qa-icon svg{width:18px;height:18px;}
+
+.qa-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 8px 22px rgba(139,92,246,.22);
+  border-color:rgba(139,92,246,.3);
+}
+.qa-btn:active{transform:translateY(-1px) scale(.96);}
+
+.util-row{
+  display:flex;
+  gap:10px;
+  width:100%;
+  margin-top:22px;
+}
+.util-btn{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:13px;
+  border-radius:14px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--glass-border);
+  color:var(--text-mid);
+  font-size:12.5px;
+  font-weight:600;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+.util-btn:hover{
+  background:rgba(139,92,246,.1);
+  color:var(--text-hi);
+  border-color:rgba(139,92,246,.25);
+}
+.util-btn:active{transform:scale(.97);}
+.util-btn svg{width:15px;height:15px;flex-shrink:0;}
+
+.footer{
+  margin-top:38px;
+  text-align:center;
+  opacity:0;
+  animation:fadeUp .7s ease forwards;
+  animation-delay:.1s;
+}
+.footer-brand{
+  font-size:16px;
+  font-weight:800;
+  background:linear-gradient(135deg, #fff, var(--neon-blue));
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  margin-bottom:6px;
+}
+.footer-sub{
+  font-size:11.5px;
+  color:var(--text-low);
+  letter-spacing:.5px;
+  margin-bottom:14px;
+}
+.footer-copy{
+  font-size:11px;
+  color:var(--text-low);
+  margin-bottom:6px;
+}
+.footer-thanks{
+  font-size:12px;
+  color:var(--text-mid);
+}
+
+.toast{
+  position:fixed;
+  bottom:26px;
+  left:50%;
+  transform:translateX(-50%) translateY(20px);
+  background:rgba(20,14,36,.95);
+  border:1px solid rgba(139,92,246,.35);
+  backdrop-filter:blur(14px);
+  color:var(--text-hi);
+  padding:12px 20px;
+  border-radius:14px;
+  font-size:13px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  box-shadow:0 8px 30px rgba(0,0,0,.5), 0 0 20px rgba(139,92,246,.2);
+  opacity:0;
+  pointer-events:none;
+  transition:opacity .3s ease, transform .3s ease;
+  z-index:100;
+  max-width:90vw;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast svg{width:16px;height:16px;color:var(--success);flex-shrink:0;}
+
+a:focus-visible, button:focus-visible{
+  outline:2px solid var(--neon-blue);
+  outline-offset:2px;
+}
+
+@media(min-width:700px){
+  .wrap{padding-top:56px;}
+}
+
+@media(max-width:420px){
+  .wrap{padding-left:14px;padding-right:14px;}
+  .brand-name{font-size:26px;}
+  .link-card{padding:15px 14px;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-fixed">
+  <div class="glow-orb orb1"></div>
+  <div class="glow-orb orb2"></div>
+  <div class="glow-orb orb3"></div>
+  <div class="noise-grid"></div>
+  <div id="particles"></div>
+</div>
+
+<div class="wrap">
+
+  <!-- PROFILE -->
+  <div class="avatar-wrap">
+    <div class="avatar-glow"></div>
+    <div class="avatar-ring"></div>
+    <div class="avatar">
+      <img src="https://i.postimg.cc/sgRDFMBs/IMG-20260829-WA0028.jpg" alt="Foto profil ARSY STORE">
+    </div>
+  </div>
+
+  <h1 class="brand-name">ARSY STORE</h1>
+  <p class="brand-tagline">Jual Beli Akun Game • Komunitas</p>
+
+  <div class="trusted-badge">
+    <svg viewBox="0 0 24 24" fill="none" width="13" height="13">
+      <path d="M9 12l2 2 4-4" stroke="#0a0614" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="12" cy="12" r="9" stroke="#0a0614" stroke-width="2"/>
+    </svg>
+    TRUSTED STORE
+  </div>
+
+  <p class="intro-text">Semua link resmi ARSY STORE ada di sini 👇</p>
+
+  <!-- LINK LIST -->
+  <div class="section-label" style="animation-delay:.55s">
+    <span>Link Arsy Store</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="link-list">
+
+    <a class="link-card" style="animation-delay:.6s" href="https://chat.whatsapp.com/Fbk3NtwA7E8J4tcoL4tZdx?s=cl&p=a&ilr=4" target="_blank" rel="noopener noreferrer" aria-label="Buka Grup JB Arsy Store">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">👥 Grup JB Arsy Store</div>
+        <div class="card-desc">Gabung komunitas jual beli akun game ARSY STORE</div>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="link-card" style="animation-delay:.68s" href="https://whatsapp.com/channel/0029VbAe0iq4SpkBasY21M2u" target="_blank" rel="noopener noreferrer" aria-label="Buka Saluran JB Arsy Store">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 11l18-5v12L3 14v-3z"/>
+          <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">📢 Saluran JB Arsy Store</div>
+        <div class="card-desc">Update stok akun, info harga, dan postingan terbaru</div>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="link-card" style="animation-delay:.76s" href="https://wa.me/6288991243238" target="_blank" rel="noopener noreferrer" aria-label="Hubungi WhatsApp Utama Arsy Store">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">📱 WhatsApp Utama</div>
+        <div class="card-desc">Hubungi ARSY STORE melalui WhatsApp</div>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+    <a class="link-card" style="animation-delay:.84s" href="https://wa.me/6283139658221" target="_blank" rel="noopener noreferrer" aria-label="Hubungi WhatsApp Kedua Arsy Store">
+      <div class="card-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      </div>
+      <div class="card-body">
+        <div class="card-title">📱 WhatsApp Kedua</div>
+        <div class="card-desc">Hubungi kontak WhatsApp ARSY STORE</div>
+      </div>
+      <svg class="card-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+    </a>
+
+  </div>
+
+  <!-- QUICK ACTION -->
+  <div class="section-label" style="animation-delay:.9s">
+    <span>@Arsy store real</span>
+    <div class="line"></div>
+  </div>
+
+  <div class="quick-actions">
